@@ -2,30 +2,30 @@ import { makeStyles } from 'react-native-elements';
 export const useStyles = makeStyles((theme) => ({
   container: {
     flex: 1,
-    position: `relative`,
     padding: 10,
     paddingTop: 25,
+    position: 'relative',
   },
   topbar: {
+    flex: 1,
     display: `flex`,
     flexDirection: `row`,
     justifyContent: 'space-between',
     alignItems: `center`,
   },
-  dropdown: {},
   text: {
-    textAlign: 'center',
+    flex: 1,
     padding: 5,
     paddingRight: 20,
     paddingLeft: 20,
     fontWeight: '500',
+    textAlign: 'center',
   },
   imageItem: {
-    alignItems: 'center',
-    aspectRatio: 1,
-    height: '100%',
+    flex: 19,
   },
   btngroup: {
+    flex: 3,
     padding: 10,
     paddingBottom: 100,
     width: '100%',
@@ -33,8 +33,7 @@ export const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
   },
   upText: {
-    color: theme?.colors?.secondary,
-    backgroundColor: 'transparent',
+    color: theme?.colors?.white,
   },
   upButton: {
     backgroundColor: theme?.colors?.secondary,
@@ -47,9 +46,7 @@ export const useStyles = makeStyles((theme) => ({
     borderColor: theme?.colors?.secondary,
   },
   inText: {
-    color: theme?.colors?.white,
-  },
-  selectedCategoryText: {
-    opacity: 1,
+    color: theme?.colors?.secondary,
+    backgroundColor: 'transparent',
   },
 }));

@@ -6,6 +6,8 @@ import { navTheme } from '@theme/theme';
 // import screens
 import WelcomeScreen from '@components/Scenes/welcome';
 import LoginScreen from '@components/Scenes/login';
+import RegisterScreen from '@components/Scenes/register';
+
 const Stack = createStackNavigator();
 
 const RootNavigator = (props: any) => {
@@ -23,7 +25,16 @@ const RootNavigator = (props: any) => {
           component={WelcomeScreen}
           options={{ headerShown: false }}
         ></Stack.Screen>
-        <Stack.Screen name="login" component={LoginScreen}></Stack.Screen>
+        <Stack.Screen
+          name="login"
+          component={LoginScreen}
+          options={{ headerShown: false }}
+        ></Stack.Screen>
+        <Stack.Screen
+          name="register"
+          component={RegisterScreen}
+          options={{ headerShown: false }}
+        ></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );
