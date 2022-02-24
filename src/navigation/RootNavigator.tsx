@@ -7,6 +7,11 @@ import { navTheme } from '@theme/theme';
 import WelcomeScreen from '@components/Scenes/welcome';
 import LoginScreen from '@components/Scenes/login';
 import RegisterScreen from '@components/Scenes/register';
+import {
+  PhoneNumberScreen,
+  OtpScreen,
+  GateScreen,
+} from '@components/Scenes/phone';
 
 const Stack = createStackNavigator();
 
@@ -19,8 +24,12 @@ const RootNavigator = (props: any) => {
         dark: themeMode === 'dark',
       }}
     >
-      <Stack.Navigator>
-        <Stack.Screen
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        {/* <Stack.Screen
           name="welcome"
           component={WelcomeScreen}
           options={{ headerShown: false }}
@@ -34,7 +43,17 @@ const RootNavigator = (props: any) => {
           name="register"
           component={RegisterScreen}
           options={{ headerShown: false }}
-        ></Stack.Screen>
+        ></Stack.Screen> */}
+        {/* <Stack.Screen
+          name="PhoneNumber"
+          component={PhoneNumberScreen}
+        ></Stack.Screen> */}
+        <Stack.Screen name="Otp" component={OtpScreen}></Stack.Screen>
+        {/*     <Stack.Screen
+          name="Gated"
+          component={GateScreen}
+          options={{ headerShown: false }}
+        ></Stack.Screen> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
