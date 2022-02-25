@@ -12,6 +12,8 @@ export const useStyles = makeStyles((theme) => ({
   phonecontainer: {
     marginTop: 10,
     borderRadius: 5,
+    borderBottomWidth: 1,
+    borderBottomColor: theme?.colors?.grey4,
   },
 
   button: {

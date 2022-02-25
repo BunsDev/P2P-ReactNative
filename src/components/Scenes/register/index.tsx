@@ -69,7 +69,9 @@ const RegisterScreen: React.FC = (props: any) => {
     return passwordCheck;
   };
 
-  const login = () => {};
+  const Signup = () => {
+    navigation.navigate('phoneNumber');
+  };
   return (
     <SafeAreaView style={styles.container}>
       <View style={{ flex: 1, justifyContent: 'space-around' }}>
@@ -117,14 +119,14 @@ const RegisterScreen: React.FC = (props: any) => {
             }
             onSubmitEditing={() => {
               validatePassword();
-              login();
+              Signup();
             }}
           />
           <Button
             title={'Sign Up'}
             activeOpacity={0.7}
             onPress={() => {
-              login();
+              Signup();
             }}
             titleStyle={styles.inText}
             buttonStyle={styles.inButton}

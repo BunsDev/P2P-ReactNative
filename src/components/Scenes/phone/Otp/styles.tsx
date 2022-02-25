@@ -1,19 +1,29 @@
 import { makeStyles } from 'react-native-elements';
 
 export const useStyles = makeStyles((theme) => ({
-  wrapper: {
+  container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
-
-  borderStyleBase: {
-    width: 30,
-    height: 45,
+  // button: {
+  //   marginTop: 50,
+  //   height: 50,
+  //   width: 300,
+  //   backgroundColor: theme?.colors?.secondary,
+  //   shadowColor: theme?.colors?.black,
+  // },
+  mdlabel: {
+    fontSize: 30,
+    fontWeight: '600',
+    textAlign: 'center',
   },
 
-  borderStyleHighLighted: {
-    borderColor: theme?.colors?.secondary,
+  headerline: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   underlineStyleBase: {
@@ -22,25 +32,15 @@ export const useStyles = makeStyles((theme) => ({
     borderWidth: 0,
     borderBottomWidth: 1,
     color: 'black',
-    fontSize: 20,
+    fontSize: 25,
+    borderColor: theme?.colors?.grey3,
   },
 
   underlineStyleHighLighted: {
     borderColor: theme?.colors?.secondary,
   },
 
-  prompt: {
-    fontSize: 24,
-    paddingHorizontal: 30,
-    paddingBottom: 20,
-  },
-
-  message: {
-    fontSize: 16,
-    paddingHorizontal: 30,
-  },
-
   error: {
-    color: theme?.colors?.red,
+    color: theme?.colors?.error,
   },
 }));

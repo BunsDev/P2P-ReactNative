@@ -29,31 +29,19 @@ const RootNavigator = (props: any) => {
           headerShown: false,
         }}
       >
-        {/* <Stack.Screen
-          name="welcome"
-          component={WelcomeScreen}
-          options={{ headerShown: false }}
-        ></Stack.Screen>
+        <Stack.Screen name="welcome" component={WelcomeScreen}></Stack.Screen>
+        <Stack.Screen name="login" component={LoginScreen}></Stack.Screen>
+        <Stack.Screen name="register" component={RegisterScreen}></Stack.Screen>
         <Stack.Screen
-          name="login"
-          component={LoginScreen}
-          options={{ headerShown: false }}
-        ></Stack.Screen>
-        <Stack.Screen
-          name="register"
-          component={RegisterScreen}
-          options={{ headerShown: false }}
-        ></Stack.Screen> */}
-        {/* <Stack.Screen
-          name="PhoneNumber"
+          name="phoneNumber"
           component={PhoneNumberScreen}
-        ></Stack.Screen> */}
-        <Stack.Screen name="Otp" component={OtpScreen}></Stack.Screen>
-        {/*     <Stack.Screen
-          name="Gated"
+        ></Stack.Screen>
+        <Stack.Screen name="otp" component={OtpScreen}></Stack.Screen>
+        <Stack.Screen
+          name="gated"
           component={GateScreen}
           options={{ headerShown: false }}
-        ></Stack.Screen> */}
+        ></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );
