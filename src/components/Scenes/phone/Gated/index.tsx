@@ -13,7 +13,7 @@ const GateScreen = (props: any) => {
       </View>
       <Button
         title="Start over"
-        onPress={() => navigation.replace('PhoneNumber')}
+        onPress={() => navigation.replace('phoneNumber')}
       />
     </SafeAreaView>
   );
