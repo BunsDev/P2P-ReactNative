@@ -9,7 +9,6 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 const Product = (props: any) => {
   const styles = useStyles();
   const { theme } = useTheme();
-  console.log(props);
   const { data } = props;
   return (
     <View style={styles.container}>

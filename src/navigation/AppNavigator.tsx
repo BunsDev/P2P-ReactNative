@@ -19,7 +19,6 @@ const AppNavigator = (props: any) => {
         tabBarStyle: { position: 'absolute' },
         tabBarLabelStyle: { fontSize: 15 },
         tabBarActiveTintColor: theme?.colors?.secondary,
-        headerShown: false,
       }}
     >
       <Tab.Screen
