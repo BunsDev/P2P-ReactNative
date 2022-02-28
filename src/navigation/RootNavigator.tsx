@@ -7,7 +7,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { navTheme } from '@theme/theme';
 // @util
 import AppNavigator from './AppNavigator';
-// import AuthNavigator from './AuthNavigator';
+import AuthNavigator from './AuthNavigator';
 
 const RootNavigator = (props: any) => {
   const { themeMode, isLoggined } = props;
@@ -20,8 +20,8 @@ const RootNavigator = (props: any) => {
         dark: themeMode === 'dark',
       }}
     >
-      {/* {!isLoggined ? <AuthNavigator /> : <AppNavigator />} */}
-      <AppNavigator />
+      {!isLoggined ? <AuthNavigator /> : <AppNavigator />}
+      {/* <AppNavigator /> */}
     </NavigationContainer>
   );
 };
