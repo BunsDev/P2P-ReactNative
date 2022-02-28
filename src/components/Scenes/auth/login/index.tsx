@@ -1,39 +1,24 @@
 import React, { useState, useRef } from 'react';
-import {
-  View,
-  UIManager,
-  LayoutAnimation,
-  SafeAreaView,
-  ScrollView,
-} from 'react-native';
-import {
-  Text,
-  InputProps,
-  Button,
-  CheckBox,
-  useTheme,
-  SocialIcon,
-} from 'react-native-elements';
+import { View, UIManager, LayoutAnimation, SafeAreaView } from 'react-native';
+import { Text, InputProps, Button, SocialIcon } from 'react-native-elements';
 import FormInput from '@components/Organisms/FormInput';
-import { useStyles } from './stlyes';
+// @redux
+import { connect } from 'react-redux';
+import { setAuthState } from '@store/actions/auth';
+// @style
+import { useStyles } from './styles';
 
 // Enable LayoutAnimation on Android
 UIManager.setLayoutAnimationEnabledExperimental &&
   UIManager.setLayoutAnimationEnabledExperimental(true);
 
-const RegisterScreen: React.FC = (props: any) => {
+const LoginScreen: React.FC = (props: any) => {
   const styles = useStyles();
-  const { theme } = useTheme();
-  const { navigation } = props;
-
+  const { navigation, setAuthState } = props;
   // state
-  const [username, setUsername] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [check1, setCheck1] = useState(false);
-  const [check2, setCheck2] = useState(false);
 
-  const [validUsername, setUsernameValid] = useState<boolean>(true);
   const [validEmail, setEmailValid] = useState<boolean>(true);
   const [validPassword, setPasswordValid] = useState<boolean>(true);
 
@@ -41,15 +26,6 @@ const RegisterScreen: React.FC = (props: any) => {
   // ref
   let emailInput = useRef<InputProps>(null);
   let passwordInput = useRef<InputProps>(null);
-  let usernameInput = useRef<InputProps>(null);
-
-  const validateUsername = () => {
-    const usernameCheck = username.length > 0;
-    LayoutAnimation.easeInEaseOut();
-    setUsernameValid(usernameCheck);
-    usernameCheck || usernameInput.shake();
-    return usernameCheck;
-  };
 
   const validateEmail = () => {
     const re =
@@ -69,27 +45,15 @@ const RegisterScreen: React.FC = (props: any) => {
     return passwordCheck;
   };
 
-  const Signup = () => {
-    navigation.navigate('phoneNumber');
+  const login = () => {
+    setAuthState(true);
+    // navigation.navigate('Home');
   };
   return (
     <SafeAreaView style={styles.container}>
       <View style={{ flex: 1, justifyContent: 'space-around' }}>
         <View>
-          <Text style={styles.mdlabel}>{'Sign Up'}</Text>
-          <FormInput
-            refInput={(input) => (usernameInput = input)}
-            icon="user"
-            value={username}
-            onChangeText={(text: string) => setUsername(text)}
-            placeholder="Username"
-            returnKeyType="next"
-            errorMessage={validUsername ? '' : "Your username can't be blank"}
-            onSubmitEditing={() => {
-              validateUsername();
-              emailInput.focus();
-            }}
-          />
+          <Text style={styles.mdlabel}>{'Welcome Login'}</Text>
           <FormInput
             refInput={(input) => (emailInput = input)}
             icon="envelope"
@@ -119,58 +83,41 @@ const RegisterScreen: React.FC = (props: any) => {
             }
             onSubmitEditing={() => {
               validatePassword();
-              Signup();
+              login();
             }}
           />
           <Button
-            title={'Sign Up'}
+            title={'Log In'}
             activeOpacity={0.7}
             onPress={() => {
-              Signup();
+              login();
             }}
             titleStyle={styles.inText}
             buttonStyle={styles.inButton}
             disabled={isLoading}
           ></Button>
-          <View>
-            <CheckBox
-              title={'Subscribe to our newsletter'}
-              checked={check1}
-              containerStyle={{
-                backgroundColor: theme?.colors?.white,
-              }}
-              checkedColor={theme?.colors?.secondary}
-              textStyle={{ fontWeight: 'normal' }}
-              onPress={() => setCheck1(!check1)}
-            />
-            <CheckBox
-              title={
-                'By registering, I confirm that I accept Terms & Conditions and Pro terms of sale, have red the Privacy policy, and am at least 18 years old.'
-              }
-              checked={check2}
-              containerStyle={{ backgroundColor: theme?.colors?.white }}
-              checkedColor={theme?.colors?.secondary}
-              textStyle={{ fontWeight: 'normal' }}
-              onPress={() => setCheck2(!check2)}
-            />
-          </View>
-          <View>
-            <SocialIcon title="Sign Up With Google" button type="google" />
-            <SocialIcon title="Sign Up With Facebook" button type="facebook" />
+          <Button
+            title={'Forgotten your password ?'}
+            titleStyle={styles.loginHereText}
+            containerStyle={{ flex: -1 }}
+            buttonStyle={{ backgroundColor: 'transparent' }}
+            onPress={() => {}}
+          />
+          <View style={styles.socialgp}>
+            <SocialIcon title="Sign In With Google" button type="google" />
+            <SocialIcon title="Sign In With Facebook" button type="facebook" />
           </View>
         </View>
         <View style={styles.loginHereContainer}>
           <Text style={styles.alreadyAccountText}>
-            {'You already have account ?'}
+            If you don't have account ?
           </Text>
           <Button
-            title="sign in"
+            title="register"
             titleStyle={styles.loginHereText}
             containerStyle={{ flex: -1 }}
             buttonStyle={{ backgroundColor: 'transparent' }}
-            onPress={() => {
-              navigation.navigate('login');
-            }}
+            onPress={() => navigation.navigate('register')}
           />
         </View>
       </View>
@@ -178,4 +125,10 @@ const RegisterScreen: React.FC = (props: any) => {
   );
 };
 
-export default RegisterScreen;
+const mapStateToProps = (state: any) => ({});
+
+const mapDispatchToProps = {
+  setAuthState: setAuthState,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);

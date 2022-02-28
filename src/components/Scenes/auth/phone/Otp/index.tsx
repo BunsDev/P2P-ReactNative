@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 
-import { TouchableOpacity, View, Alert } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Button, Text } from 'react-native-elements';
+import { Text } from 'react-native-elements';
 import { checkVerification } from '@utils/phone-verify';
 import OTPInputView from '@twotalltotems/react-native-otp-input';
 import AwesomeAlert from 'react-native-awesome-alerts';
-
 import { Icon } from 'react-native-elements/dist/icons/Icon';
-
+//  @redux
+import { connect } from 'react-redux';
+import { setAuthState } from '@store/actions/auth';
+// @style
 import { useStyles } from './styles';
 import { theme } from '@theme/theme';
 const OtpScreen = (props: any) => {
   const styles = useStyles();
+  const { setAuthState } = props;
   const [showAlert, setShowAlert] = useState<boolean>(false);
   const { phoneNumber, navigation } = props;
   const [invalidCode, setInvalidCode] = useState(false);
@@ -54,12 +57,19 @@ const OtpScreen = (props: any) => {
         confirmText="Go to DashBoard"
         confirmButtonColor={theme?.colors?.secondary}
         onConfirmPressed={() => {
-          navigation.replace('gated');
           setShowAlert(false);
+          setAuthState(true);
+          navigation.navigate('app', {
+            screen: 'Home',
+          });
         }}
       />
     </SafeAreaView>
   );
 };
 
-export default OtpScreen;
+const mapStateToProps = (state: any) => ({});
+const mapDispatchToProps = {
+  setAuthState: setAuthState,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(OtpScreen);

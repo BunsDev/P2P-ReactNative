@@ -32,8 +32,8 @@ module.exports = function (api) {
             '@scenes': './src/scenes',
             // store
             '@store': './src/store',
-            // styles
-            '@styles': './src/styles',
+            // types
+            '@types': './src/types',
             // theme
             '@theme': './src/theme',
             // utils

@@ -15,7 +15,7 @@ import loadAssetsAsync from '@theme/assets';
 
 const store = configureStore();
 
-const App: React.FC = () => {
+const App = () => {
   const [isReady, setIsReady] = useState(false);
 
   if (!isReady) {

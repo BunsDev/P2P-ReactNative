@@ -6,4 +6,7 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  list: {
+    width: '95%',
+  },
 }));

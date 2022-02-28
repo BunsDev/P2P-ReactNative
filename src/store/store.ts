@@ -1,14 +1,16 @@
 import { createStore, combineReducers } from 'redux';
-import ExampleReducer from '@store/reducers/example';
+import { composeWithDevTools } from 'redux-devtools-extension';
+//  @reducers
+import AuthReducer from '@store/reducers/auth';
 import ThemeReducer from './reducers/theme';
 
 const rootReducer = combineReducers({
-  example: ExampleReducer,
+  auth: AuthReducer,
   theme: ThemeReducer,
 });
 
 const configureStore = () => {
-  return createStore(rootReducer);
+  return createStore(rootReducer, composeWithDevTools());
 };
 
 export default configureStore;

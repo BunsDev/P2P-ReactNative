@@ -13,16 +13,6 @@ const WelcomeScreen: React.FC = (props: any) => {
   const { navigation } = props;
   const styles = useStyles();
   const [selected, setSelected] = useState<string>('En');
-  const [isLoading, setLoading] = useState<boolean>(false);
-  const selectCategory = (selectedCategoryIndex: number) => {
-    setLoading(false);
-    if (selectedCategoryIndex === 0) {
-      navigation.navigate('register');
-    } else {
-      navigation.navigate('login');
-    }
-  };
-
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.topbar}>
@@ -42,19 +32,17 @@ const WelcomeScreen: React.FC = (props: any) => {
         <Button
           title={'Sign Up'}
           activeOpacity={0.7}
-          onPress={() => selectCategory(0)}
+          onPress={() => navigation.navigate('register')}
           titleStyle={styles.upText}
           buttonStyle={styles.upButton}
-          disabled={isLoading}
         ></Button>
         <Button
           type="outline"
           title={'I already have an account'}
           activeOpacity={0.7}
-          onPress={() => selectCategory(1)}
+          onPress={() => navigation.navigate('login')}
           titleStyle={styles.inText}
           buttonStyle={styles.inButton}
-          disabled={isLoading}
         ></Button>
       </View>
     </SafeAreaView>

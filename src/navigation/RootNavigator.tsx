@@ -1,22 +1,18 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+// @redux
 import { connect } from 'react-redux';
+// @react navigation
+import { NavigationContainer } from '@react-navigation/native';
+// @style
 import { navTheme } from '@theme/theme';
-// import screens
-import WelcomeScreen from '@components/Scenes/welcome';
-import LoginScreen from '@components/Scenes/login';
-import RegisterScreen from '@components/Scenes/register';
-import {
-  PhoneNumberScreen,
-  OtpScreen,
-  GateScreen,
-} from '@components/Scenes/phone';
-
-const Stack = createStackNavigator();
+// @util
+import AppNavigator from './AppNavigator';
+// import AuthNavigator from './AuthNavigator';
 
 const RootNavigator = (props: any) => {
-  const { themeMode } = props;
+  const { themeMode, isLoggined } = props;
+
+  console.log(themeMode, isLoggined);
   return (
     <NavigationContainer
       theme={{
@@ -24,33 +20,15 @@ const RootNavigator = (props: any) => {
         dark: themeMode === 'dark',
       }}
     >
-      <Stack.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}
-      >
-        <Stack.Screen name="welcome" component={WelcomeScreen}></Stack.Screen>
-        <Stack.Screen name="login" component={LoginScreen}></Stack.Screen>
-        <Stack.Screen name="register" component={RegisterScreen}></Stack.Screen>
-        <Stack.Screen
-          name="phoneNumber"
-          component={PhoneNumberScreen}
-        ></Stack.Screen>
-        <Stack.Screen name="otp" component={OtpScreen}></Stack.Screen>
-        <Stack.Screen
-          name="gated"
-          component={GateScreen}
-          options={{ headerShown: false }}
-        ></Stack.Screen>
-      </Stack.Navigator>
+      {/* {!isLoggined ? <AuthNavigator /> : <AppNavigator />} */}
+      <AppNavigator />
     </NavigationContainer>
   );
 };
 
 const mapStateToProps = (state: any) => ({
   themeMode: state.theme.mode,
+  isLoggined: state.auth.isLoggined,
 });
 
-// const mapDispatchToProps = {};
-// export default connect(mapStateToProps, mapDispatchToProps)(RootNavigator);
 export default connect(mapStateToProps)(RootNavigator);
