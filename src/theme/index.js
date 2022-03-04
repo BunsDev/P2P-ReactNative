@@ -7,6 +7,11 @@ export const BaseTheme = extendTheme({
         fontSize: "lg",
       },
     },
+    Input: {
+      defaultProps: {
+        borderColor: "warmGray.400",
+      },
+    },
   },
   colors: {
     slateGray: {

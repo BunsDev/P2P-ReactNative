@@ -4,17 +4,16 @@ import BG_IMAGE from "@assets/images/bgimg.png";
 import { Layout } from "@components/Layout";
 
 const Welcome = (props) => {
-  const { colorMode, toggleColorMode } = useColorMode();
-
+  const { navigation } = props;
   return (
-    <Layout>
+    <Layout height={5}>
       <VStack space={3}>
         <Image source={BG_IMAGE} alt="Revoclix" height={600} />
         <Button onPress={() => console.log("signup")} size="lg">
           {"Sign Up"}
         </Button>
         <Button
-          onPress={() => console.log("signin")}
+          onPress={() => navigation.navigate("login")}
           size="lg"
           variant="outline"
         >
