@@ -12,18 +12,19 @@ import {
   Pressable,
   Heading,
   HStack,
+  Checkbox,
 } from "native-base";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { MaterialCommunityIcons, SimpleLineIcons } from "@expo/vector-icons";
 import {
   FacebookSocialButton,
   GoogleSocialButton,
 } from "react-native-social-buttons";
 
-const Login = (props) => {
+const Register = (props) => {
   const { navigation } = props;
-
+  const [groupValues, setGroupValues] = React.useState([]);
   return (
-    <Layout>
+    <Layout height={10}>
       <VStack
         alignItems="center"
         w="75%"
@@ -35,8 +36,28 @@ const Login = (props) => {
         <FormControl isRequired>
           <VStack space={4}>
             <Heading textAlign="center" mb={2}>
-              {"Welcome Login"}
+              {"Sign Up"}
             </Heading>
+            <Box>
+              <Input
+                defaultValue=""
+                placeholder="Username"
+                fontSize={15}
+                InputLeftElement={
+                  <Icon
+                    as={<SimpleLineIcons name="user" />}
+                    size={6}
+                    ml="3"
+                    color="muted.400"
+                  />
+                }
+              />
+              <FormControl.ErrorMessage
+                leftIcon={<WarningOutlineIcon size="xs" />}
+              >
+                {"Please enter a Username"}
+              </FormControl.ErrorMessage>
+            </Box>
             <Box>
               <Input
                 defaultValue=""
@@ -79,20 +100,24 @@ const Login = (props) => {
               </FormControl.ErrorMessage>
             </Box>
             <Box mt={3}>
-              <Button size="lg">{"Log In"}</Button>
+              <Button size="lg">{"Sign Up"}</Button>
             </Box>
 
             <Box>
-              <Pressable
-                onPress={() => console.log("forgotten")}
-                _web={{
-                  cursor: "pointer",
-                }}
+              <Checkbox.Group
+                onChange={setGroupValues}
+                value={groupValues}
+                accessibilityLabel="choose numbers"
               >
-                <Text textAlign="center" fontSize={15} color="primary.500">
-                  {"Forgotten your password ?"}
-                </Text>
-              </Pressable>
+                <Checkbox value="one" my={2}>
+                  {"Subscribe to our newsletter"}
+                </Checkbox>
+                <Checkbox value="two">
+                  {
+                    "By registering, I confirm that I accept Terms & Conditions and Pro terms of sale, have read the Privacy policy, and am at least 18 years old."
+                  }
+                </Checkbox>
+              </Checkbox.Group>
             </Box>
           </VStack>
         </FormControl>
@@ -106,11 +131,11 @@ const Login = (props) => {
           />
           <FacebookSocialButton buttonViewStyle={{ width: "100%" }} />
         </VStack>
-        <HStack alignItems="center" space={3} mt={200}>
-          <Text fontSize={15}>{"If you don't have account ?"}</Text>
-          <Pressable onPress={() => navigation.navigate("register")}>
+        <HStack alignItems="center" space={3} mt={100}>
+          <Text fontSize={15}>{"You already have account ?"}</Text>
+          <Pressable onPress={() => navigation.navigate("login")}>
             <Text fontSize={15} color="primary.500">
-              {"Register"}
+              {"Sign In"}
             </Text>
           </Pressable>
         </HStack>
@@ -119,4 +144,4 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+export default Register;
