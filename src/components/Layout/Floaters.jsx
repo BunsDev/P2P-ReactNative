@@ -3,13 +3,14 @@ import { StatusBar } from "expo-status-bar";
 import { Fab, useColorMode, Icon } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
 
-export const Floaters = () => {
+export const Floaters = (props) => {
+  const { fb } = props;
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <>
       <StatusBar
-        style={colorMode === "dark" ? "light" : "dark"}
-        backgroundColor={colorMode == "dark" ? "#0f172a" : "#ffffff"}
+        style={colorMode !== "dark" ? "light" : "dark"}
+        backgroundColor={colorMode != "dark" ? "#0f172a" : "#ffffff"}
         translucent={true}
       />
       <Fab
@@ -33,6 +34,7 @@ export const Floaters = () => {
             bg: "blueGray.800",
           },
         }}
+        bottom={fb && fb}
         p={3}
         icon={
           <Icon

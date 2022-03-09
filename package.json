@@ -10,6 +10,8 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-navigation/bottom-tabs": "^6.2.0",
+    "@react-navigation/material-bottom-tabs": "^6.1.1",
     "@react-navigation/native": "^6.0.8",
     "@react-navigation/stack": "^6.1.1",
     "babel-plugin-module-resolver": "^4.1.0",
@@ -23,6 +25,7 @@
     "react-native-confirmation-code-field": "^7.3.0",
     "react-native-dotenv": "^3.3.1",
     "react-native-gesture-handler": "~2.1.0",
+    "react-native-paper": "^4.11.2",
     "react-native-phone-number-input": "^2.1.0",
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.10.1",

@@ -1,11 +1,10 @@
 import React from "react";
-import { Box, useColorMode, ScrollView, Stack } from "native-base";
+import { Box, useColorMode, ScrollView } from "native-base";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Floaters } from "./Floaters";
 
 const Layout = (props) => {
-  const { children, height } = props;
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { children, height, fb } = props;
   const safeArea = useSafeAreaInsets();
   return (
     <>
@@ -33,7 +32,7 @@ const Layout = (props) => {
           {children}
         </Box>
       </ScrollView>
-      <Floaters />
+      <Floaters fb={fb} />
     </>
   );
 };

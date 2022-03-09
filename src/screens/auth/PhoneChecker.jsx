@@ -9,9 +9,9 @@ import {
   Text,
 } from "native-base";
 import { Layout } from "@components/Layout";
-import PhoneInput from "react-native-phone-number-input";
 import { AntDesign } from "@expo/vector-icons";
 import Verify from "@components/Verify";
+import PhoneInput from "react-native-phone-number-input";
 // @utils
 // import { sendSmsVerification, checkVerification } from "@utils/phone-verify";
 

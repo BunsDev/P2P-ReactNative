@@ -9,10 +9,9 @@ import { AppNavigator, AuthNavigator } from "@navigation/index";
 const RootNavigator = (props) => {
   const { isLoggined } = props;
 
-  console.log(isLoggined);
   const [lightBg, darkBg] = useToken(
     "colors",
-    ["coolGray.50", "blueGray.900"],
+    ["white", "blueGray.900"],
     "blueGray.900"
   );
   const bgColor = useColorModeValue(lightBg, darkBg);
@@ -36,7 +35,8 @@ const RootNavigator = (props) => {
           overflowX: "hidden",
         }}
       >
-        {!isLoggined ? <AuthNavigator /> : <AppNavigator />}
+        <AppNavigator />
+        {/* {!isLoggined ? <AuthNavigator /> : <AppNavigator />} */}
       </Box>
     </NavigationContainer>
   );

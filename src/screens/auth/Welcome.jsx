@@ -9,7 +9,7 @@ const Welcome = (props) => {
     <Layout height={5}>
       <VStack space={3}>
         <Image source={BG_IMAGE} alt="Revoclix" height={600} />
-        <Button onPress={() => console.log("signup")} size="lg">
+        <Button onPress={() => navigation.navigate("register")} size="lg">
           {"Sign Up"}
         </Button>
         <Button
