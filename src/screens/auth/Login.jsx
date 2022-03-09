@@ -18,9 +18,18 @@ import {
   FacebookSocialButton,
   GoogleSocialButton,
 } from "react-native-social-buttons";
+// @redux
+import { connect } from "react-redux";
+import { setAuthState } from "@store/actions/auth";
 
 const Login = (props) => {
-  const { navigation } = props;
+  const { navigation, setAuthState } = props;
+
+  const onHandleLogin = () => {
+    //  TODO : fix setAuth with API integration
+    setAuthState(true);
+    navigation.navigate("dashboard");
+  };
 
   return (
     <Layout>
@@ -79,7 +88,9 @@ const Login = (props) => {
               </FormControl.ErrorMessage>
             </Box>
             <Box mt={3}>
-              <Button size="lg">{"Log In"}</Button>
+              <Button size="lg" onPress={() => onHandleLogin()}>
+                {"Log In"}
+              </Button>
             </Box>
 
             <Box>
@@ -119,4 +130,8 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+const mapStateToProps = (state) => ({});
+const mapDispatchToProps = {
+  setAuthState: setAuthState,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

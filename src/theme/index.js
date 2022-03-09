@@ -10,6 +10,7 @@ export const BaseTheme = extendTheme({
     Input: {
       defaultProps: {
         borderColor: "warmGray.400",
+        fontSize: "xl",
       },
     },
   },

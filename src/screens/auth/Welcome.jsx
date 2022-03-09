@@ -1,5 +1,5 @@
 import React from "react";
-import { Center, Image, useColorMode, VStack, Button } from "native-base";
+import { Image, VStack, Button } from "native-base";
 import BG_IMAGE from "@assets/images/bgimg.png";
 import { Layout } from "@components/Layout";
 

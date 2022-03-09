@@ -4,10 +4,12 @@ import { Box, useColorModeValue, useToken } from "native-base";
 import { connect } from "react-redux";
 // @react navigation
 import { NavigationContainer } from "@react-navigation/native";
-import AuthNavigator from "./AuthNavigator";
+import { AppNavigator, AuthNavigator } from "@navigation/index";
 
 const RootNavigator = (props) => {
   const { isLoggined } = props;
+
+  console.log(isLoggined);
   const [lightBg, darkBg] = useToken(
     "colors",
     ["coolGray.50", "blueGray.900"],
@@ -34,14 +36,13 @@ const RootNavigator = (props) => {
           overflowX: "hidden",
         }}
       >
-        <AuthNavigator />
+        {!isLoggined ? <AuthNavigator /> : <AppNavigator />}
       </Box>
     </NavigationContainer>
   );
 };
 
 const mapStateToProps = (state) => ({
-  themeMode: state.theme.mode,
   isLoggined: state.auth.isLoggined,
 });
 

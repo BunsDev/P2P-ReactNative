@@ -2,7 +2,7 @@ import * as t from "@store/constants/auth";
 
 const AuthReducer = (
   state = {
-    isLoggined: true,
+    isLoggined: false,
   },
   action
 ) => {

@@ -100,7 +100,9 @@ const Register = (props) => {
               </FormControl.ErrorMessage>
             </Box>
             <Box mt={3}>
-              <Button size="lg">{"Sign Up"}</Button>
+              <Button size="lg" onPress={() => navigation.navigate("verify")}>
+                {"Sign Up"}
+              </Button>
             </Box>
 
             <Box>
