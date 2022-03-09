@@ -14,9 +14,12 @@ import Verify from "@components/Verify";
 import PhoneInput from "react-native-phone-number-input";
 // @utils
 // import { sendSmsVerification, checkVerification } from "@utils/phone-verify";
+// @redux
+import { connect } from "react-redux";
+import { setAuthState } from "@store/actions/auth";
 
 const PhoneChecker = (props) => {
-  const { navigation } = props;
+  const { navigation, setAuthState } = props;
   const [flag, setFlag] = useState(false);
   const [invalidCode, setInvalidCode] = useState(false);
   const [formattedValue, setFormattedValue] = useState("");
@@ -29,6 +32,7 @@ const PhoneChecker = (props) => {
   const onHandleClick = (value) => {
     // checkVerification(phoneNumber, code).then((success) => {
     // if (!success) setInvalidCode(true);
+    setAuthState(true);
     navigation.navigate("dashboard");
     // });
   };
@@ -104,4 +108,8 @@ const PhoneChecker = (props) => {
   );
 };
 
-export default PhoneChecker;
+const mapStateToProps = (state) => ({});
+const mapDispatchToProps = {
+  setAuthState: setAuthState,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(PhoneChecker);
