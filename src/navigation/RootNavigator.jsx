@@ -35,8 +35,8 @@ const RootNavigator = (props) => {
           overflowX: "hidden",
         }}
       >
-        {/* <AppNavigator /> */}
-        {!isLoggined ? <AuthNavigator /> : <AppNavigator />}
+        <AppNavigator />
+        {/* {!isLoggined ? <AuthNavigator /> : <AppNavigator />} */}
       </Box>
     </NavigationContainer>
   );

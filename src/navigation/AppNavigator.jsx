@@ -1,5 +1,4 @@
 import React from "react";
-import { useColorMode } from "native-base";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 
 // @icons
