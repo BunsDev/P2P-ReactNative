@@ -44,6 +44,7 @@ const ChildrenWrapper = (props) => {
         py={10}
         mx="auto"
         w={{ base: "100%", md: "768px", lg: "1000px", xl: "1080px" }}
+        position="relative"
       >
         {children}
       </Box>

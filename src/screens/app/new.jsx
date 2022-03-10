@@ -10,6 +10,7 @@ import {
   VStack,
   Icon,
   useColorMode,
+  Heading,
 } from "native-base";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
@@ -18,16 +19,22 @@ import { MenuItem } from "@components/Menu/index";
 
 const MenuData = [
   {
-    label: "Category",
-    icon: "arrow-right",
+    leftname: "Category",
+    rightCP: (
+      <MaterialCommunityIcons name="arrow-right" size={30} color="#a3a3a3" />
+    ),
   },
   {
-    label: "Brand",
-    icon: "arrow-right",
+    leftname: "Brand",
+    rightCP: (
+      <MaterialCommunityIcons name="arrow-right" size={30} color="#a3a3a3" />
+    ),
   },
   {
-    label: "Condition",
-    icon: "arrow-right",
+    leftname: "Condition",
+    rightCP: (
+      <MaterialCommunityIcons name="arrow-right" size={30} color="#a3a3a3" />
+    ),
   },
 ];
 
@@ -35,9 +42,12 @@ const New = (props) => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Layout th={1} fb={60} scroll={true}>
+      <Center>
+        <Heading>{"Sell an Item"}</Heading>
+      </Center>
       <VStack space={6} p={3}>
         <VStack>
-          <Center>
+          <Center mb={2}>
             <Text fontSize="md">
               {"Add up to 20 photos "}
               <Text underline color="primary.500">
@@ -88,7 +98,7 @@ const New = (props) => {
           </Box>
         </VStack>
 
-        <VStack space={3}>
+        <VStack space={4}>
           {MenuData &&
             MenuData.map((item, index) => (
               <MenuItem item={item} key={`newproduct-menuitem-${index}`} />

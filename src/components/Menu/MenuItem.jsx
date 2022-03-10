@@ -1,6 +1,5 @@
 import React from "react";
 import { HStack, Pressable, Text } from "native-base";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const MenuItem = (props) => {
   const { item } = props;
@@ -19,12 +18,14 @@ const MenuItem = (props) => {
               ],
             }}
           >
-            <Text>{item.label}</Text>
-            <MaterialCommunityIcons
-              name={item.icon}
-              size={30}
-              color="#a3a3a3"
-            />
+            <HStack alignItems="center" space={2}>
+              {item.leftCP}
+              <Text>{item.leftname}</Text>
+            </HStack>
+            <HStack space={2}>
+              <Text color="#a3a3a3">{item.rightname}</Text>
+              {item.rightCP}
+            </HStack>
           </HStack>
         );
       }}
