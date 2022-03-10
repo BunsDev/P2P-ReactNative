@@ -4,7 +4,11 @@ import { Box, useColorModeValue, useToken } from "native-base";
 import { connect } from "react-redux";
 // @react navigation
 import { NavigationContainer } from "@react-navigation/native";
-import { AppNavigator, AuthNavigator } from "@navigation/index";
+import {
+  AppNavigator,
+  AuthNavigator,
+  ProfileNavigator,
+} from "@navigation/index";
 
 const RootNavigator = (props) => {
   const { isLoggined } = props;
@@ -35,7 +39,8 @@ const RootNavigator = (props) => {
           overflowX: "hidden",
         }}
       >
-        <AppNavigator />
+        {/* <AppNavigator /> */}
+        <ProfileNavigator />
         {/* {!isLoggined ? <AuthNavigator /> : <AppNavigator />} */}
       </Box>
     </NavigationContainer>

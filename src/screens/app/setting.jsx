@@ -66,11 +66,11 @@ const MenuData3 = [
 const MenuData4 = [
   {
     leftname: "Notify sellers when I favoruite their items",
-    rightCP: <Switch size="lg" />,
+    rightCP: <Switch size="md" />,
   },
   {
     leftname: "Data settings",
-    rightCP: <Switch size="lg" />,
+    rightCP: <Switch size="md" />,
   },
 ];
 
@@ -84,7 +84,7 @@ const Setting = (props) => {
         <VStack space={4}>
           {MenuData1 &&
             MenuData1.map((item, index) => (
-              <MenuItem item={item} key={`newproduct-menuitem-${index}`} />
+              <MenuItem item={item} key={`setting1-menuitem-${index}`} />
             ))}
         </VStack>
         <VStack space={4}>
@@ -93,7 +93,7 @@ const Setting = (props) => {
           </Text>
           {MenuData2 &&
             MenuData2.map((item, index) => (
-              <MenuItem item={item} key={`newproduct-menuitem-${index}`} />
+              <MenuItem item={item} key={`setting2-menuitem-${index}`} />
             ))}
         </VStack>
         <VStack space={4}>
@@ -102,7 +102,7 @@ const Setting = (props) => {
           </Text>
           {MenuData3 &&
             MenuData3.map((item, index) => (
-              <MenuItem item={item} key={`newproduct-menuitem-${index}`} />
+              <MenuItem item={item} key={`setting3-menuitem-${index}`} />
             ))}
         </VStack>
         <VStack space={1}>
@@ -111,7 +111,7 @@ const Setting = (props) => {
           </Text>
           {MenuData4 &&
             MenuData4.map((item, index) => (
-              <MenuItem item={item} key={`newproduct-menuitem-${index}`} />
+              <MenuItem item={item} key={`setting4-menuitem-${index}`} />
             ))}
         </VStack>
       </VStack>
