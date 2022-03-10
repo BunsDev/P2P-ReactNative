@@ -6,7 +6,7 @@ import { Layout } from "@components/Layout";
 const Welcome = (props) => {
   const { navigation } = props;
   return (
-    <Layout height={5}>
+    <Layout th={5} scroll={true}>
       <VStack space={3}>
         <Image source={BG_IMAGE} alt="Revoclix" height={600} />
         <Button onPress={() => navigation.navigate("register")} size="lg">

@@ -32,7 +32,7 @@ const Login = (props) => {
   };
 
   return (
-    <Layout>
+    <Layout scroll={true}>
       <VStack
         alignItems="center"
         w="75%"

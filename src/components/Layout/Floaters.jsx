@@ -9,8 +9,8 @@ export const Floaters = (props) => {
   return (
     <>
       <StatusBar
-        style={colorMode !== "dark" ? "light" : "dark"}
-        backgroundColor={colorMode != "dark" ? "#0f172a" : "#ffffff"}
+        style={"light"}
+        backgroundColor={colorMode != "dark" ? "#0f172a" : "#5b21b6"}
         translucent={true}
       />
       <Fab

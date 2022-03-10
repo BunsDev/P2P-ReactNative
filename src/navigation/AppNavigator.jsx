@@ -4,7 +4,7 @@ import { createMaterialBottomTabNavigator } from "@react-navigation/material-bot
 // @icons
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 // @screens
-import { Home } from "../screens/app";
+import { Home, New } from "../screens/app";
 
 // @screens
 
@@ -35,7 +35,7 @@ const AuthNavigator = () => {
       />
       <Tab.Screen
         name="New"
-        component={Home}
+        component={New}
         options={{
           tabBarLabel: "New",
           tabBarIcon: ({ color, size }) => (

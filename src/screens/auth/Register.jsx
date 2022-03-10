@@ -24,7 +24,7 @@ const Register = (props) => {
   const { navigation } = props;
   const [groupValues, setGroupValues] = React.useState([]);
   return (
-    <Layout height={10}>
+    <Layout th={10} scroll={true}>
       <VStack
         alignItems="center"
         w="75%"

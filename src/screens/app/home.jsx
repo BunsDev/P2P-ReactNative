@@ -68,7 +68,7 @@ const data = [
 
 const Home = () => {
   return (
-    <Layout height={5} fb={60} noScroll={false}>
+    <Layout th={1} fb={60} scroll={false}>
       <FlatList
         data={data}
         numColumns={2}

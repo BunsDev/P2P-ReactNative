@@ -38,7 +38,7 @@ const PhoneChecker = (props) => {
   };
 
   return (
-    <Layout>
+    <Layout scroll={true}>
       <VStack margin="auto" space={4} alignItems="center">
         {!flag ? (
           <VStack space={5} alignContent="center">
