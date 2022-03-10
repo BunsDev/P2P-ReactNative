@@ -11,6 +11,7 @@ import {
   Icon,
   useColorMode,
   Heading,
+  HStack,
 } from "native-base";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
@@ -77,6 +78,19 @@ const New = (props) => {
               </Button>
             </Center>
           </Box>
+        </VStack>
+        <VStack space={1}>
+          <Text fontSize="md">{"BarCode"}</Text>
+          <HStack justifyContent="space-between" alignItems="center" space={10}>
+            <Input
+              flex={1}
+              variant="underlined"
+              placeholder="12345678901234567890"
+              fontSize="md"
+              isReadOnly
+            />
+            <Button>{"Scan"}</Button>
+          </HStack>
         </VStack>
         <VStack space={5}>
           <Box>

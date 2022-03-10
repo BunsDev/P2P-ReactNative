@@ -22,7 +22,7 @@ const MenuItem = (props) => {
               {item.leftCP}
               <Text>{item.leftname}</Text>
             </HStack>
-            <HStack space={2}>
+            <HStack space={2} alignItems="center">
               <Text color="#a3a3a3">{item.rightname}</Text>
               {item.rightCP}
             </HStack>
